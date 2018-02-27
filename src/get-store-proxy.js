@@ -63,7 +63,7 @@ export const getStoreProxy = (worker, debug) => {
   })
 
   window.addEventListener('popstate', () => {
-    proxy.action('doUpdateUrl', [window.location.pathname])
+    store.action('doUpdateUrl', [window.location.pathname])
   })
 
   worker.addEventListener('message', e => {

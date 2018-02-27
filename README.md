@@ -24,7 +24,9 @@ import { getStoreProxy } from 'redux-bundler-worker'
 
 // init our worker
 const worker = new Worker('/build/worker.js')
-// pass it to our store proxy
+// pass the worker into getStoreProxy to
+// get something that mimics the API of a
+// redux store created by redux-bundler
 const storeProxy = getStoreProxy(worker)
 
 // render our root component passing the proxy
