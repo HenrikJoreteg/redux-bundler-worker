@@ -51,6 +51,11 @@ import { setUpWorker } from 'redux-bundler-worker'
 setUpWorker(getStore)
 ```
 
+## change log
+
+* `0.0.3` - now handling scroll position restoration
+* `0.0.2` - initial public release
+
 ## credits
 
 If you like this follow [@HenrikJoreteg](http://twitter.com/henrikjoreteg) on twitter.
