@@ -1,7 +1,7 @@
 {
   "name": "redux-bundler-worker",
   "description": "Utilities for running a redux-bundler app inside a worker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Henrik Joreteg <henrik@joreteg.com> (joreteg.com)",
   "bugs": {
     "url": "https://github.com/HenrikJoreteg/redux-bundler-worker/issues"
