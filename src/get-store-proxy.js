@@ -1,4 +1,8 @@
-import { selectorNameToValueName } from 'redux-bundler'
+import {
+  selectorNameToValueName,
+  initScrollPosition,
+  saveScrollPosition
+} from 'redux-bundler'
 import { enable } from 'worker-proof'
 
 export const getStoreProxy = (worker, debug) => {
@@ -66,6 +70,7 @@ export const getStoreProxy = (worker, debug) => {
     store.action('doUpdateUrl', [window.location.pathname])
   })
 
+  let firstMessage = true
   worker.addEventListener('message', e => {
     if (e.data.type !== 'changes') {
       return
@@ -79,12 +84,14 @@ export const getStoreProxy = (worker, debug) => {
     if (changes.urlRaw) {
       const { url } = changes.urlRaw
       if (url !== window.location.href) {
+        saveScrollPosition()
         window.history[changes.urlRaw.replace ? 'replaceState' : 'pushState'](
           {},
           null,
           url
         )
         document.body.scrollTop = 0
+        document.body.scrollLeft = 0
       }
     }
 
@@ -109,6 +116,11 @@ export const getStoreProxy = (worker, debug) => {
         subscription.fn(relevantChanges)
       }
     })
+
+    if (firstMessage) {
+      initScrollPosition()
+      firstMessage = false
+    }
   })
 
   return store

@@ -7,7 +7,7 @@
     "url": "https://github.com/HenrikJoreteg/redux-bundler-worker/issues"
   },
   "dependencies": {
-    "redux-bundler": "17.1.0",
+    "redux-bundler": "21.0.0",
     "worker-proof": "1.0.0"
   },
   "devDependencies": {
